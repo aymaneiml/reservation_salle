@@ -32,9 +32,9 @@ public class Reservation {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="user_id", nullable = false)
-    @JsonProperty("userId")
-    private User user;
+    @JoinColumn(name="client_id", nullable = false)
+    @JsonProperty("clientId")
+    private Client client;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="room_id", nullable = false)
@@ -47,8 +47,8 @@ public class Reservation {
     @Column(name = "end_time",nullable = false)
     private LocalDateTime endTime;
 
-    public UUID getUser(){
-        return user.getId();
+    public UUID getClient(){
+        return client.getId();
     }
 
     public Long getRoom(){
@@ -57,7 +57,5 @@ public class Reservation {
 
     @Enumerated(EnumType.STRING)
     private ReservationStatus status;
-
-    
 
 }
