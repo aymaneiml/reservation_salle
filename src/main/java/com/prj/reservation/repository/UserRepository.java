@@ -11,6 +11,6 @@ import com.prj.reservation.entity.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, UUID>{
 
-    Optional<User> findOneByAccountCreationToken(String token);
+    //Optional<User> findOneByAccountCreationToken(String token);
     Optional<User> findOneByUsername(String username);
 }

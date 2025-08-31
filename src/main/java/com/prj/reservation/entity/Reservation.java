@@ -47,11 +47,11 @@ public class Reservation {
     @Column(name = "end_time",nullable = false)
     private LocalDateTime endTime;
 
-    public UUID getClient(){
+    public UUID getClientId(){
         return client.getId();
     }
 
-    public Long getRoom(){
+    public Long getRoomId(){
         return room.getId();
     }
 
