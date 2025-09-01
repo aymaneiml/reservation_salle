@@ -55,7 +55,8 @@ public class Reservation {
         return room.getId();
     }
 
+    @Column(name = "status", nullable = false)
     @Enumerated(EnumType.STRING)
-    private ReservationStatus status;
+    private ReservationStatus status = ReservationStatus.PENDING;
 
 }

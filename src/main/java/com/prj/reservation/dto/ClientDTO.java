@@ -26,7 +26,7 @@ public record ClientDTO(
     @Size(min = 2, max = 50, message = "min is 2 character")
     String username,
 
-    @NotNull(message = "username is required")
+    @NotNull(message = "email is required")
     @Email(message = "Invalid email format")
     String email,
 

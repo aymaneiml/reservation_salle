@@ -31,8 +31,8 @@ public class Room {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="room_name", unique = true, nullable = false)
-    private String name;
+    @Column(name="room_number", unique = true, nullable = false)
+    private String roomNumber;
 
     @Column(name="capacity", nullable = false)
     private int capacity;
@@ -49,6 +49,8 @@ public class Room {
     @JoinColumn(name="admin_id", nullable = false)
     @JsonProperty("adminId")
     private Admin admin;
+
+    
 
     public Long getHotel(){
         return hotel.getId();

@@ -3,6 +3,8 @@ package com.prj.reservation.dto;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import com.prj.reservation.entity.ReservationStatus;
+
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
 
@@ -21,6 +23,8 @@ public record ReservationDTO(
     @NotNull(message = "End Date is required")
     @PastOrPresent(message = "end date cannot be inthe futur")
     LocalDateTime endTime
+
+
 ) {
 
 }
