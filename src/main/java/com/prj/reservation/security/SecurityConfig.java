@@ -3,6 +3,7 @@ package com.prj.reservation.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -34,6 +35,12 @@ public class SecurityConfig {
             .csrf(c->c.disable())
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/v1/auth/**","/swagger-ui/**","/swagger-ui.html","/v3/api-docs/**").permitAll()
+                .requestMatchers(HttpMethod.GET,"/rooms").hasAnyRole("ADMIN","CLIENT")
+                .requestMatchers(HttpMethod.POST,"/rooms").hasAnyRole("ADMIN")
+                .requestMatchers(HttpMethod.GET,"/hotels/**").hasAnyRole("ADMIN")
+                .requestMatchers(HttpMethod.POST,"/hotels/**").hasAnyRole("ADMIN")
+                .requestMatchers(HttpMethod.PUT,"/hotels/**").hasAnyRole("ADMIN")
+                .requestMatchers(HttpMethod.DELETE,"/hotels/**").hasAnyRole("ADMIN")
                 .anyRequest().authenticated()
             )
             .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)

@@ -52,7 +52,7 @@ public class User implements UserDetails{
     private String password;
 
     @Enumerated(EnumType.STRING)
-    private Role role; //user, admin
+    private Role role; //client, admin
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
