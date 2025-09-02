@@ -22,6 +22,7 @@ public class Hotel {
     private String adress;
 
     @Column(name = "stars", nullable= false)
-    private String stars;
+    private int stars;
+
 
 }

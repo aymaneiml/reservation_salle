@@ -40,6 +40,9 @@ public class Room {
     @Column(name="description", columnDefinition = "TEXT")
     private String description;
 
+    @Column(name = "room_price", nullable = false)
+    private double price;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="hotel_id", nullable = false)
     @JsonProperty("hotelId")
