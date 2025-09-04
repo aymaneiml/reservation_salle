@@ -1,28 +1,27 @@
 package com.prj.reservation.dto;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 import com.prj.reservation.entity.ReservationStatus;
 
+import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
 
 public record ReservationDTO(
 
-    @NotNull(message = " client id is required")
-    UUID clientId,
-
     @NotNull(message = "room id is required")
     Long roomId,
 
     @NotNull(message = "start Date is required")
-    @PastOrPresent(message = "start date should be now or in the future")
-    LocalDateTime startTime,
+    @FutureOrPresent(message = "Start date should be now or in the future")
+    LocalDate startDate,
 
     @NotNull(message = "End Date is required")
-    @PastOrPresent(message = "end date cannot be inthe futur")
-    LocalDateTime endTime
+    @FutureOrPresent(message = "End date cannot be in the past")
+    LocalDate endDate
 
 
 ) {
