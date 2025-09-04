@@ -1,5 +1,6 @@
 package com.prj.reservation.entity;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -41,11 +42,11 @@ public class Reservation {
     @JsonProperty("roomId")
     private Room room;
 
-    @Column(name = "start_time", nullable = false)
-    private LocalDateTime startTime;
+    @Column(name = "start_date", nullable = false)
+    private LocalDate startDate;
 
-    @Column(name = "end_time",nullable = false)
-    private LocalDateTime endTime;
+    @Column(name = "end_date",nullable = false)
+    private LocalDate endDate;
 
     public UUID getClientId(){
         return client.getId();
